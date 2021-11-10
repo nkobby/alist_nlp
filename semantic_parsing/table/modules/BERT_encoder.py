@@ -20,7 +20,7 @@ class BERT(nn.Module):
         #             param.requires_grad = True
         #             break
                 
-        self.model = BertModel.from_pretrained(name, cache_dir=os.path.join(model_path, 'BERT_pretrained_models', path))
+        self.model = BertModel.from_pretrained(name, cache_dir=os.path.join('BERT_pretrained_models', path))
 
         self.output_dim = 768 if bert_name == 'base' else 1024
         #self.linear_mapping = nn.Linear(self.output_dim, d_model,
