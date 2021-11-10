@@ -79,7 +79,7 @@ class SrcVocab(object):
         return word_piece
 if __name__ == '__main__':
     vocab = SrcVocab('bert-base-uncased')
-    # js_list = table.IO.read_txt('/Users/liyanzhou/Desktop/Edinburgh/Dissertation/semantic_parsing/data_model/test.txt')
+    # js_list = table.IO.read_txt('data/input/test.txt')
     # srcseqs = js_list[0]['src']
     # srcseqs.append('embeddings')
     # batch_seqs = vocab.encodeSeqs(srcseqs)

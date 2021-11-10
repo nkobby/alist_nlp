@@ -3,8 +3,8 @@ import re
 import ast
 from wikidata.client import Client
 
-prediatce_path = './data/predicate_dict.txt'
-test_path = './data/all_train.txt'
+prediatce_path = './data/input/predicate_dict.txt'
+test_path = './data/input/all_train.txt'
 def split_sparql(sparql):
     sparql = sparql.strip().replace("}","").split("{")
     sparql[0] = sparql[0].strip()
@@ -455,7 +455,7 @@ def conjunct(triple_list):
 
 f = open(test_path, 'a')
 ID = 14308
-with open('./data/train.json') as fjson:
+with open('./data/input/train.json') as fjson:
     client = Client()
     data = json.load(fjson)
     predicate_dict = load_predicate(prediatce_path)

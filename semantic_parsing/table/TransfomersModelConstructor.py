@@ -46,7 +46,7 @@ def make_embeddings(word_dict, vec_size):
 
 
 def make_bert_encoder(opt):
-    return BERT(opt.bert_name, opt.dim_size)
+    return BERT(opt.bert_name, opt.dim_size, opt.data)
 
 def make_transformer_encoder(opt, vocab):
     return transformerEncoder(dropout = opt.dropout, attention_dropout = opt.attention_dropout,

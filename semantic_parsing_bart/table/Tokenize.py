@@ -80,7 +80,7 @@ if __name__ == '__main__':
     # for id, token in vocab.tokenizer.ids_to_tokens.items():
     #     print('id {} token {}'.format(id, token))
     print('len is ',len(vocab.tokenizer))
-    #js_list = table.IO.read_txt('/Users/liyanzhou/Desktop/Edinburgh/Dissertation/semantic_parsing/data_model/test.txt')
+    #js_list = table.IO.read_txt('data/input/test.txt')
     srcseqs = 'sv ov p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 v1 o1 o2 o3 o4 o5 o6 o7 o8 o9 o10 o11 ov1 x0 x1 y0 y1 X XX A AA'
     #tgt = ' '.join(js_list[0]['tgt_'])
     print(vocab.pad_id)

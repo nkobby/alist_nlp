@@ -1,0 +1,14 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+.vscode
+*/__pycache__/*
+semantic_parsing/table/__pycache__/*
+
+semantic_parsing/data/input/BERT_pretrained_models/*
+semantic_parsing/data/output/*

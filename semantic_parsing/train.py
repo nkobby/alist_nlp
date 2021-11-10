@@ -37,8 +37,8 @@ opts.train_opts(parser)
 
 opt = parser.parse_args()
 
-opt.data = os.path.join(opt.root_dir)
-opt.save_dir = os.path.join(opt.root_dir)
+opt.data = os.path.join(opt.root_dir, 'data','input')
+opt.save_dir = os.path.join(opt.root_dir, 'data','output')
 opt.save_path = os.path.join(opt.save_dir, 'run.%d' %
                              (get_save_index(opt.save_dir),))
 Path(opt.save_path).mkdir_p()

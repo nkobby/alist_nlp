@@ -624,4 +624,4 @@ class TableDataset(torchtext.data.Dataset):
         print('ohho')
 
 #if __name__ == "__main__":
-    #print(load_template('/Users/liyanzhou/Desktop/Edinburgh/Dissertation/semantic_parsing/data_model/templates.txt'))
+    #print(load_template('data/input/templates.txt'))

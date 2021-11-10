@@ -74,7 +74,7 @@ if __name__ == '__main__':
     vocab = SrcVocab()
     # for id, token in vocab.tokenizer.ids_to_tokens.items():
     #     print('id {} token {}'.format(id, token))
-    js_list = table.IO.read_txt('/Users/liyanzhou/Desktop/Edinburgh/Dissertation/semantic_parsing/data_model/test.txt')
+    js_list = table.IO.read_txt('data/input/test.txt')
     srcseqs = js_list[0]['src_']
     tgt = ' '.join(js_list[0]['tgt_'])
     print(vocab.pad_id)

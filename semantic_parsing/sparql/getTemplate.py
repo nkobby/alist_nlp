@@ -71,9 +71,9 @@ def save_txt(filename, datas):
 
 
 if __name__ == '__main__':
-    train_pair = ('./data/train.json', './data/train.txt', './data/train_.txt')
-    test_pair = ('./data/test.json', './data/test.txt', './data/test_.txt')
-    valid_pair = ('./data/test.json', './data/valid.txt', './data/valid_.txt')
+    train_pair = ('./data/input/train.json', './data/input/train.txt', './data/input/train_.txt')
+    test_pair = ('./data/input/test.json', './data/input/test.txt', './data/input/test_.txt')
+    valid_pair = ('./data/input/test.json', './data/input/valid.txt', './data/input/valid_.txt')
     data_pairs = [test_pair, valid_pair, train_pair]
     templates_list = []
     for pair in data_pairs:
@@ -82,6 +82,6 @@ if __name__ == '__main__':
         templates_list.extend(templates)
         save_txt(pair[2], new_datas)
     templates_set = set(templates_list)
-    with open('./data/templates.txt', 'a') as f:
+    with open('./data/input/templates.txt', 'a') as f:
         for template in templates_set:
             f.writelines(str(template) + '\n')

@@ -3,11 +3,11 @@ import re
 import json
 from wikidata.client import Client
 data_path = './data'
-entity_path = './data/resource/entities_covered'
-predicate_path = './data/resource/predicates_with_frequency'
+entity_path = './data/input/resource/entities_covered'
+predicate_path = './data/input/resource/predicates_with_frequency'
 predictae_dict = {}
 client = Client()
-wf = open('./data/predicate_dict.txt','a')
+wf = open('./data/input/predicate_dict.txt','a')
 mark = 'P653'
 count = 0
 with open(predicate_path) as f:
