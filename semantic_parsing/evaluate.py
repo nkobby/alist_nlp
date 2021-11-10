@@ -26,7 +26,7 @@ def main():
     opts.train_opts(dummy_parser)
     dummy_opt = dummy_parser.parse_known_args([])[0]
     print('opt.anno is', opt.anno)
-    js_list = table.IO.read_txt(opt.anno)
+    js_list = table.IO.read_txt(opt.anno, opt.data)
     templates = table.IO.load_template(os.path.join(opt.root_dir, 'templates.txt'))
     template_js_list = {}
     for template in templates:

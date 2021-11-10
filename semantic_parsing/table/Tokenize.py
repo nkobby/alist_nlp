@@ -4,8 +4,8 @@ import warnings
 import os
 import torch
 class SrcVocab(object):
-    def __init__(self, bertModel):
-        self.tokenizer = BertTokenizer.from_pretrained(bertModel)
+    def __init__(self, bertModel, data_dir):
+        self.tokenizer = BertTokenizer.from_pretrained(bertModel, cache_dir=os.path.join(data_dir, 'BERT_tokenizer_models', 'bert-base-uncased'))
         self.tokenizer.ids_to_tokens[1] = '<s>'
         self.tokenizer.vocab['<s>'] = 1
         self.tokenizer.vocab['</s>'] = 2
@@ -78,7 +78,7 @@ class SrcVocab(object):
                 return None
         return word_piece
 if __name__ == '__main__':
-    vocab = SrcVocab('bert-base-uncased')
+    vocab = SrcVocab('bert-base-uncased','')
     # js_list = table.IO.read_txt('data/input/test.txt')
     # srcseqs = js_list[0]['src']
     # srcseqs.append('embeddings')

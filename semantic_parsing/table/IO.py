@@ -243,9 +243,9 @@ def modify_data(data, bert_vocab):
         return data
 
 
-def read_txt(path):
+def read_txt(path, data_dir):
     datas = []
-    bert_vocab = SrcVocab('bert-base-uncased')
+    bert_vocab = SrcVocab('bert-base-uncased', data_dir)
     with open(path) as f:
         lines = f.readlines()
         data = {}
@@ -368,7 +368,7 @@ class TableDataset(torchtext.data.Dataset):
         filter_ex: False - keep all the examples for evaluation (should not have filtered examples); True - filter examples with unmatched spans;
         """
         if isinstance(path, str):
-            datas = read_txt(path)
+            datas = read_txt(path, opt.data)
         else:
             datas = path
 

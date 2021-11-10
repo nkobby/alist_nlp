@@ -11,5 +11,6 @@
 semantic_parsing/table/__pycache__/*
 
 semantic_parsing/data/input/BERT_pretrained_models/*
+semantic_parsing/data/input/BERT_tokenizer_models/*
 semantic_parsing/data/output/*
 semantic_parsing/table/modules/__pycache__/*

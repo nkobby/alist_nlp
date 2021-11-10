@@ -142,7 +142,7 @@ class ParserModel(nn.Module):
     def forward(self, q, q_len, bert_input, bert_len, attention_mask, lay, lay_e, lay_len, lay_index, tgt_mask, tgt,
                 lay_parent_index, tgt_loss, copy_to_ext, copy_to_ext_wordpiece, wordpiece_index):
         # bert_input, q, attention_mask size: seq_len*batch_size
-        vocab = SrcVocab('bert-base-uncased')
+        vocab = SrcVocab('bert-base-uncased', self.opt.data)
         batch_size = q.size(1)
         bert_token_input = [vocab.decode_token2token(seq.tolist()) for seq in bert_input.transpose(0, 1)]
         # print('bert_token_input', bert_token_input)

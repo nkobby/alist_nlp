@@ -36,7 +36,7 @@ opt.save_data = os.path.join(opt.root_dir)
 
 
 def main():
-    datas = table.IO.read_txt(opt.train_anno)
+    datas = table.IO.read_txt(opt.train_anno, opt.data)
 
     print('Preparing training ...')
     fields = table.IO.TableDataset.get_fields()
