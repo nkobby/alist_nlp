@@ -1,0 +1,12 @@
+
+ Q: Who is the  {country} for {head of state} of {Mahmoud Abbas}
+ SPARQL:  select distinct ?sbj where { ?sbj wdt:P35 wd:Q127998 . ?sbj wdt:P31 wd:Q6256 } 
+ ALIST: {'h': 'List', 'v': '?x0', 's': '?x0', 'p': 'head of state', 'o': 'Mahmoud Abbas', '?x0': {'h': 'Value', 'v': '?x0', 's': '?x0', 'p': 'type', 'o': 'country'}}
+
+ Q: What was the population of Somalia in 2009-0-0?
+ SPARQL: SELECT ?obj WHERE { wd:Q1045 p:P1082 ?s . ?s ps:P1082 ?obj . ?s pq:P585 ?x filter(contains(YEAR(?x),'2009')) }
+ ALIST: {'h': 'Value', 'v': '?x0', 's': 'Somalia', 'p': 'population', 'o': '?x0', 't': '2009'}
+
+ Q: What is {voice actresses} of {South Park}, that has {employment} is {singer} ?
+ SPARQL: SELECT ?answer WHERE { wd:Q16538 wdt:P725 ?answer . ?answer wdt:P106 wd:Q177220}
+ ALIST: {'h': 'Value', 'v': '?x0', 's': 'South Park', 'p': 'voice actress', 'o': '?x0', '?x0': {'h': 'Value', 'v': '?x0', 's': '?x0', 'p': 'employ', 'o': 'singer'}}

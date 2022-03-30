@@ -82,6 +82,6 @@ if __name__ == '__main__':
         templates_list.extend(templates)
         save_txt(pair[2], new_datas)
     templates_set = set(templates_list)
-    with open('./data/input/templates.txt', 'a') as f:
+    with open('./data/input/templates2.txt', 'a') as f:
         for template in templates_set:
             f.writelines(str(template) + '\n')

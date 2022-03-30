@@ -1,0 +1,40 @@
+
+ Q: Who is the  {country} for {head of state} of {Mahmoud Abbas}
+ SPARQL:  select distinct ?sbj where { ?sbj wdt:P35 wd:Q127998 . ?sbj wdt:P31 wd:Q6256 } 
+ ALIST: {'h': 'List', 'v': '?x0', 's': '?x0', 'p': 'head of state', 'o': 'Mahmoud Abbas', '?x0': {'h': 'Value', 'v': '?x0', 's': '?x0', 'p': 'type', 'o': 'country'}}
+
+ Q: What was the population of Somalia in 2009-0-0?
+ SPARQL: SELECT ?obj WHERE { wd:Q1045 p:P1082 ?s . ?s ps:P1082 ?obj . ?s pq:P585 ?x filter(contains(YEAR(?x),'2009')) }
+ ALIST: {'h': 'Value', 'v': '?x0', 's': 'Somalia', 'p': 'population', 'o': '?x0', 't': '2009'}
+
+ Q: What is {voice actresses} of {South Park}, that has {employment} is {singer} ?
+ SPARQL: SELECT ?answer WHERE { wd:Q16538 wdt:P725 ?answer . ?answer wdt:P106 wd:Q177220}
+ ALIST: {'h': 'Value', 'v': '?x0', 's': 'South Park', 'p': 'voice actress', 'o': '?x0', '?x0': {'h': 'Value', 'v': '?x0', 's': '?x0', 'p': 'employ', 'o': 'singer'}}
+
+ Q: What is {nominated for} of {Dolores del Río} that is {for work} is {La Otra} ?
+ SPARQL: SELECT ?obj WHERE { wd:Q124057 p:P1411 ?s . ?s ps:P1411 ?obj . ?s pq:P1686 wd:Q3915489 }
+ ALIST: {'h': 'Value', 'v': '?x0', 's': '$y0', 'p': 'nominated for', 'o': '?x0', '$y0': {'h': 'Value', 'v': '$y0', 's': 'Dolores del Río', 'p': 'nominated for', 'o': '$y0', '$y0': {'h': 'Value', 'v': '$y0', 's': '$y0', 'p': 'for work', 'o': 'La Otra'}}}
+
+ Q: What was the population of Clermont-Ferrand on 1-1-2013?
+ SPARQL: SELECT ?obj WHERE { wd:Q42168 p:P1082 ?s . ?s ps:P1082 ?obj . ?s pq:P585 ?x filter(contains(YEAR(?x),'2013')) }
+ ALIST: {'h': 'Value', 'v': '?x0', 's': 'Clermont-Ferrand', 'p': 'population', 'o': '?x0', 't': '2013'}
+
+ Q: On Lake Winnipeg what is the lakes on river?
+ SPARQL: select distinct ?answer where { ?answer wdt:P469 wd:Q3272}
+ ALIST: {'h': 'List', 'v': '?x0', 's': '?x0', 'p': 'lakes on river', 'o': 'Lake Winnipeg'}
+
+ Q: What open cluster has the largest radius?
+ SPARQL: select ?ent where { ?ent wdt:P31 wd:Q11387 . ?ent wdt:P2120 ?obj } ORDER BY DESC(?obj)LIMIT 5 
+ ALIST: {'h': 'MAX', 'v': '$y0', 's': '?x0', 'p': 'radius', 'o': '$y0', '?x0': {'h': 'Value', 'v': '?x0', 's': '?x0', 'p': 'type', 'o': 'open cluster'}}
+
+ Q: what is the {end time} for {Jonathan Swift} has {residence} as {Whitehaven} ?
+ SPARQL: SELECT ?value WHERE { wd:Q41166 p:P551 ?s . ?s ps:P551 wd:Q1012481 . ?s pq:P582 ?value}
+ ALIST: {'h': 'Value', 'v': '?x0', 's': '$y0', 'p': 'end time', 'o': '?x0', '$y0': {'h': 'Value', 'v': '$y0', 's': 'Jonathan Swift', 'p': 'residence', 'o': '$y0', '$y0': {'h': 'Value', 'v': '$y0', 's': '$y0', 'p': 'residence', 'o': 'Whitehaven'}}}
+
+ Q: Give me {mode of transport} that contains the word {vehicle} in their name
+ SPARQL: SELECT DISTINCT ?sbj ?sbj_label WHERE { ?sbj wdt:P31 wd:Q334166 . ?sbj rdfs:label ?sbj_label . FILTER(CONTAINS(lcase(?sbj_label), 'vehicle')) . FILTER (lang(?sbj_label) = 'en') } LIMIT 25 
+ ALIST: {'h': 'List', 'v': '?x0,?x1', 's': '?x0', 'p': 'label', 'o': '?x1', '?x0': {'h': 'Value', 'v': '?x0', 's': '?x0', 'p': 'type', 'o': 'mode of transport'}, '?x1': {'h': 'Value', 'v': '?x1', 's': '?x1', 'p': 'contains', 'o': 'vehicle'}}
+
+ Q: what is the {for work} for {Danny Elfman} has {nominated for} as {Academy Award for Best Original Score} ?
+ SPARQL: SELECT ?value WHERE { wd:Q193338 p:P1411 ?s . ?s ps:P1411 wd:Q488651 . ?s pq:P1686 ?value}
+ ALIST: {'h': 'Value', 'v': '?x0', 's': '$y0', 'p': 'for work', 'o': '?x0', '$y0': {'h': 'Value', 'v': '$y0', 's': 'Danny Elfman', 'p': 'nominated for', 'o': '$y0', '$y0': {'h': 'Value', 'v': '$y0', 's': '$y0', 'p': 'nominated for', 'o': 'Academy Award for Best Original Score'}}}

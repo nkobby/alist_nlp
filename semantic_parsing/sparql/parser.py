@@ -1,11 +1,16 @@
+# convert SQPARL queries to alists
+
 import json
-from sparql_parser import SPARQL
+# from sparql.parser import SPARQL
 import re
 import ast
+from datetime import date, datetime
 from wikidata.client import Client
 
-prediatce_path = './data/input/predicate_dict.txt'
-test_path = './data/input/test.txt'
+root = '/home/kobby/projects/alist_nlp/semantic_parsing'
+prediatce_path = root + '/sparql/data/input/predicate_dict.txt'
+test_out_path = root + '/sparql/data/input/test_' + datetime.now().strftime('%Y%m%d%H%M%S') + '.txt'
+test_json = root + '/sparql/data/input/test.json'
 def split_sparql(sparql):
     sparql = sparql.strip().replace("}","").split("{")
     sparql[0] = sparql[0].strip()
@@ -454,24 +459,24 @@ def conjunct(triple_list):
     return alist
 
 
-f = open(test_path, 'a')
+f = open(test_out_path, 'a')
 ID = 0
-with open('./data/input/test.json') as fjson:
+with open(test_json) as fjson:
     client = Client()
     data = json.load(fjson)
     predicate_dict = load_predicate(prediatce_path)
     print(len(data))
-    for i in range(ID, len(data)):
+    for i in range(ID, 3):
         print("The {}th data".format(i))
-        # SPARQL = data[i]['sparql_wikidata']
-        # qqnt = data[i]['NNQT_question']
-        # question = data[i]['question']
+        SPARQL = data[i]['sparql_wikidata']
+        qqnt = data[i]['NNQT_question']
+        question = data[i]['question']
         # SPARQL = "SELECT DISTINCT ?sbj ?sbj_label WHERE { ?sbj wdt:P31 wd:Q1006311 . ?sbj rdfs:label ?sbj_label . FILTER(CONTAINS(lcase(?sbj_label), 'war')) . FILTER (lang(?sbj_label) = 'en') } LIMIT 25 "
         # qqnt = "Give me {war of national liberation} that contains the word {war} in their name"
         # question = "What are the war of national liberation which start with the letter war"
-        SPARQL = "select ?ent where { ?ent wdt:P31 wd:Q28640 . ?ent wdt:P3618 ?obj } ORDER BY DESC(?obj)LIMIT 5  "
-        qqnt = "What is the {profession} with the {MAX(base salary)}"
-        question = "What profession has the highest base salary"
+        # SPARQL = "select ?ent where { ?ent wdt:P31 wd:Q28640 . ?ent wdt:P3618 ?obj } ORDER BY DESC(?obj)LIMIT 5  "
+        # qqnt = "What is the {profession} with the {MAX(base salary)}"
+        # question = "What profession has the highest base salary"
         sparql = split_sparql(SPARQL)
         pattern = '(?<!\w)\?\w+'
         pv = re.findall(pattern, sparql[0])
